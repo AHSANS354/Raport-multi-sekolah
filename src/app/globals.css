@@ -123,3 +123,42 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Print styles for report cards */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Hide navigation and other non-printable elements */
+  nav,
+  aside,
+  header,
+  footer,
+  .no-print,
+  [data-sidebar],
+  [role="dialog"] {
+    display: none !important;
+  }
+  
+  /* Reset page margins */
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+  
+  /* Ensure tables don't break across pages */
+  table {
+    page-break-inside: avoid;
+  }
+  
+  tr {
+    page-break-inside: avoid;
+  }
+  
+  /* Ensure descriptions don't break awkwardly */
+  .description-block {
+    page-break-inside: avoid;
+  }
+}
